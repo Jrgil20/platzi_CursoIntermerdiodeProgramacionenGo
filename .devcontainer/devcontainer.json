@@ -1,0 +1,14 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/guiyomh/features/golangci-lint:0": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go",
+        "GitHub.copilot"
+      ]
+    }
+  }
+}
