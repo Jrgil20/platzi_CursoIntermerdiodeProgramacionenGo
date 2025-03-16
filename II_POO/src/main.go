@@ -32,6 +32,55 @@ func (e *Employee) GetName() string {
 	return e.name
 }
 
+type Manager struct {
+	id        int
+	name      string
+	vacation  bool
+	employees []Employee
+}
+
+func NewManager(id int, name string, vacation bool, employees []Employee) *Manager {
+	return &Manager{
+		id:        id,
+		name:      name,
+		vacation:  vacation,
+		employees: employees,
+	}
+}
+
+func (m *Manager) SetId(id int) {
+	m.id = id
+}
+
+func (m *Manager) SetName(name string) {
+	m.name = name
+}
+
+func (m *Manager) GetId() int {
+	return m.id
+}
+
+func (m *Manager) GetName() string {
+	return m.name
+}
+
+func (m *Manager) AddEmployee(e Employee) {
+	m.employees = append(m.employees, e)
+}
+
+func (m *Manager) RemoveEmployee(id int) {
+	for i, e := range m.employees {
+		if e.id == id {
+			m.employees = append(m.employees[:i], m.employees[i+1:]...)
+			break
+		}
+	}
+}
+
+func (m *Manager) GetEmployees() []Employee {
+	return m.employees
+}
+
 func main() {
 	// 1
 	e := Employee{}
